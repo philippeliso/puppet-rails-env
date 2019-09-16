@@ -1,0 +1,24 @@
+[Unit]
+Description=sidekiq-critical
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/company-webservice-sk
+ExecStart=/bin/bash -lc 'bundle exec sidekiq -C /opt/company-webservice-sk/config/sidekiq.yml -q critical 3 -e production'
+User=mutley
+Group=mutley
+UMask=0002
+
+# if we crash, restart
+#RestartSec=1
+#Restart=on-failure
+
+# output goes to /var/log/syslog
+StandardOutput=syslog
+StandardError=syslog
+
+SyslogIdentifier=sidekiq-critical
+
+[Install]
+WantedBy=multi-user.target

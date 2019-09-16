@@ -1,0 +1,3 @@
+puppet.conf
+environments/production/modules/az-ubt-qa-company-app/files/app/company/*
+environments/production/modules/az-ubt-qa-company-sidekiq/files/app/company-sk/*

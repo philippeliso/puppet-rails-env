@@ -1,0 +1,73 @@
+<LoadPlugin postgresql>
+   Interval 1
+</LoadPlugin>
+
+<Plugin postgresql>
+
+  <Query custom_deadlocks>
+      Statement "SELECT deadlocks as num_deadlocks FROM pg_stat_database WHERE datname = $1;"
+      Param database
+
+      <Result>
+          Type "pg_xact"
+          InstancePrefix "num_deadlocks"
+          ValuesFrom "num_deadlocks"
+      </Result>
+  </Query>
+
+#  <Database postgres>
+#    Host "<%= @ipaddress_eth0 %>"
+#    User "mutley"
+#    Password "DxE[Fgwkg.uDj+MHhmp?cA"
+#    Query custom_deadlocks
+#    Query backends
+#   Query transactions
+#    Query queries
+#    Query queries_by_table
+#    Query query_plans
+#    Query table_states
+#    Query query_plans_by_table
+#    Query table_states_by_table
+#    Query disk_io
+#    Query disk_io_by_table
+#    Query disk_usage
+#  </Database>
+
+  <Database company_test>
+    Host "<%= @hostname %>"
+    User "mutley"
+    Password "DxE[Fgwkg.uDj+MHhmp?cA"
+    Query custom_deadlocks
+    Query backends
+    Query transactions
+    Query queries
+    Query queries_by_table
+    Query query_plans
+    Query table_states
+    Query query_plans_by_table
+    Query table_states_by_table
+    Query disk_io
+    Query disk_io_by_table
+    Query disk_usage
+  </Database>
+
+  <Database company_production>
+    Host "<%= @hostname %>"
+    User "mutley"
+    Password "DxE[Fgwkg.uDj+MHhmp?cA"
+    Query custom_deadlocks
+    Query backends
+    Query transactions
+    Query queries
+    Query queries_by_table
+    Query query_plans
+    Query table_states
+    Query query_plans_by_table
+    Query table_states_by_table
+    Query disk_io
+    Query disk_io_by_table
+    Query disk_usage
+  </Database>
+
+</Plugin>
+

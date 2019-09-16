@@ -1,0 +1,1 @@
+jenkins ALL = NOPASSWD: /usr/bin/sudo, /usr/bin/puppet, /usr/bin/ansible, /usr/bin/ansible-playbook, /sbin/route
